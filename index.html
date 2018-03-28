@@ -95,10 +95,18 @@
         width: 100%;
     }
     .video-curtain-top {
-        top: 0;
+        left: 0;
+        top: 5.7em;
     }
     .video-curtain-bottom {
-        bottom: 0;
+        left: 0;
+        bottom: 5.1em;
+    }
+    .video-curtain-top, 
+    .video-curtain-bottom {
+	display: flex;
+        align-items: center;
+	justify-content: center;
     }
     </style>
 </head>
@@ -114,24 +122,28 @@
             <div class="row">
                 <h5 class="column column-10">Title</h5>
                 <input type="text" class="column column-40" v-model="video_title" placeholder="(title here)">
+		<h5 class="column column-10">Top Curtain Text</h5>
+                <input type="text" class="column column-40" v-model="video_top_curtain_text" placeholder="(top curtain text)">
+            </div>
+            <div class="row">
+                <h5 class="column column-10">Bottom Curtain Text</h5>
+                <input type="text" class="column column-40" v-model="video_bottom_curtain_text" placeholder="(bottom curtain text)">
                 <h5 class="column column-10">Subscript</h5>
                 <input type="text" class="column column-40" v-model="video_subcription" placeholder="(subscript below is here)">
             </div>
             <h4>Record</h4>
             <div class="row">
                 <label class="column" v-for="x in record_status_list"><input type="radio" name="record_status" v-model="record_started" v-bind:value="x.started">{{ x.name }}</label>
-		<label class="column">Header Curtain Height: </label><input type="number" v-model="video_curtain_top_height_percentage"><span class="column">%</span>
-		<label class="column">Footer Curtain Height: </label><input type="number" v-model="video_curtain_bottom_height_percentage"><span class="column">%</span>
+		<label class="column">Header Curtain Height: </label><input type="number" min="0" max="100"v-model="video_curtain_top_height_percentage"><span class="column">%</span>
+		<label class="column">Footer Curtain Height: </label><input type="number" min="0" max="100" v-model="video_curtain_bottom_height_percentage"><span class="column">%</span>
             </div>
         </div>
         <hr>
         <div class="container video-mt" :class="getVideoClassName(video_mt_class)">
             <h2 class="video-title">{{ video_title }}</h2>
-            <div class="container">
-	        <iframe id="video" src="https://appear.in/" frameborder="0"></iframe>
-		<div class="video-curtain video-curtain-top" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(record_started, video_curtain_top_height_percentage)"></div>
-		<div class="video-curtain video-curtain-bottom" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(record_started, video_curtain_bottom_height_percentage)"></div>
-	    </div>
+	    <iframe src="https://appear.in/" frameborder="0"></iframe>
+	    <div class="video-curtain video-curtain-top" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(record_started, video_curtain_top_height_percentage)"><span>{{ video_top_curtain_text }}</span></div>
+	    <div class="video-curtain video-curtain-bottom" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(record_started, video_curtain_bottom_height_percentage)">{{ video_bottom_curtain_text }}</div>
             <h3 class="video-subcaption">{{ video_subcription }}</h3>
         </div>
     </main>
@@ -145,7 +157,8 @@
 	if (!video_started) {
 	    return "display: none;";
 	}
-	return "height: " + video_height_percentage + "%;";
+	return "height: " + video_height_percentage + "%; "
+	       + "line-height: " + video_height_percentage + "%;";
     }
     var app = new Vue({
         el: "#app",
@@ -168,9 +181,11 @@
             video_mt_class: 1,
             record_started: false,
             video_title: "Channel",
+            video_top_curtain_text: "www.",
+            video_bottom_curtain_text: "...",
             video_subcription: "Have a good time with us.",
-            video_curtain_top_height_percentage: 12,
-            video_curtain_bottom_height_percentage: 12,
+            video_curtain_top_height_percentage: 17,
+            video_curtain_bottom_height_percentage: 9,
         },
     })
     </script>
