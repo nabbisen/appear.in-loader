@@ -139,12 +139,22 @@
                 <label class="column column-20" v-for="x in record_status_list"><input type="radio" name="record_status" v-model="record_started" v-bind:value="x.started">{{ x.name }}</label>
             </div>
             <div class="row">
-		<h5 class="column">Header Curtain</h5><label class="column">Top Position</label><input type="number" min="0" max="10" step="0.1" v-model="video_curtain_top_em"><span class="column">em</span>
-		<label class="column">Height</label><input type="number" min="0" max="100"v-model="video_curtain_top_height_percentage"><span class="column">%</span>
+		<h5 class="column">Header Curtain</h5>
+		<label class="column">Top Position</label>
+		<input type="number" min="0" max="10" step="0.1" v-model="video_curtain_top_em">
+		<span class="column">em [unit]</span>
+		<label class="column">Height</label>
+		<input type="number" min="0" max="100"v-model="video_curtain_top_height_percentage">
+		<span class="column">%</span>
 	    </div>
             <div class="row">
-		<h5 class="column">Footer Curtain</h5><label class="column">Bottom Position</label><input type="number" min="0" max="10" step="0.1" v-model="video_curtain_bottom_em"><span class="column">em</span>
-		<label class="column">Height</label><input type="number" min="0" max="100" v-model="video_curtain_bottom_height_percentage"><span class="column">%</span>
+		<h5 class="column">Footer Curtain</h5>
+		<label class="column">Bottom Position</label>
+		<input type="number" min="0" max="10" step="0.1" v-model="video_curtain_bottom_em">
+		<span class="column">em [unit]</span>
+		<label class="column">Height</label>
+		<input type="number" min="0" max="100" v-model="video_curtain_bottom_height_percentage">
+		<span class="column">%</span>
             </div>
         </div>
         <hr>
