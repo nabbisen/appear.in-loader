@@ -19,6 +19,11 @@
         color: black;
         padding: 1.5rem 3.0rem;
     }
+    .color-sample {
+        font-family: 'Fredericka the Great', cursive;
+	text-align: center;
+	height: 1.6em;
+    }
     .video-mt {
         font-family: 'Fredericka the Great', cursive;
         text-align: center;
@@ -85,6 +90,24 @@
     .video-mt-9 h2, .video-mt-9 h3, .video-mt-9 .video-curtain {
         color: white;
     }
+    .video-mt-10 {
+        background-color: orange;
+    }
+    .video-mt-10 h2, .video-mt-10 h3, .video-mt-10 .video-curtain {
+        color: black;
+    }
+    .video-mt-11 {
+        background-color: red;
+    }
+    .video-mt-11 h2, .video-mt-11 h3, .video-mt-11 .video-curtain {
+        color: white;
+    }
+    .video-mt-12 {
+        background-color: skyblue;
+    }
+    .video-mt-12 h2, .video-mt-12 h3, .video-mt-12 .video-curtain {
+        color: black;
+    }
     .video-title {
 	margin-top: 0;
     }
@@ -125,6 +148,9 @@
                 <div class="row">
                     <label class="column" v-for="x in video_mt_class_list"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
                 </div>
+		<div class="row color-sample" :class="getVideoClassName(video_mt_class)">
+	            <div class="video-curtain">Like this.</span>
+	        </div>
             </div>
 	    <hr>
 	    <div data-intro="Input text around video frame.">
@@ -220,6 +246,9 @@
                 {number: 7, name: "Brown"},
                 {number: 8, name: "Pink"},
                 {number: 9, name: "Purple"},
+                {number: 10, name: "Orange"},
+                {number: 11, name: "Red"},
+                {number: 12, name: "Skyblue"},
             ],
             preparation_status_list: [
                 {is_ready: true, name: "Yes!"},
@@ -227,9 +256,9 @@
             ],
             video_mt_class: 1,
             is_ready: false,
-            video_title: "Channel",
-            video_top_curtain_text: "www.",
-            video_bottom_curtain_text: "...",
+            video_title: "XXX Channel",
+            video_top_curtain_text: "www.youtube/xxx",
+            video_bottom_curtain_text: "https://xxx.jp",
             video_footer: "Have a good time with us.",
             video_curtain_top_em: 5.7,
             video_curtain_top_height_percentage: 17,
