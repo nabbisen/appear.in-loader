@@ -33,55 +33,55 @@
     .video-mt-1 {
         background-color: white;
     }
-    .video-mt-1 h2, .video-mt-1 h3 {
+    .video-mt-1 h2, .video-mt-1 h3, .video-mt-1 .video-curtain {
         color: black;
     }
     .video-mt-2 {
         background-color: black;
     }
-    .video-mt-2 h2, .video-mt-2 h3 {
+    .video-mt-2 h2, .video-mt-2 h3, .video-mt-2 .video-curtain {
         color: white;
     }
     .video-mt-3 {
         background-color: gray;
     }
-    .video-mt-3 h2, .video-mt-3 h3 {
+    .video-mt-3 h2, .video-mt-3 h3, .video-mt-3 .video-curtain {
         color: white;
     }
     .video-mt-4 {
         background-color: blue;
     }
-    .video-mt-4 h2, .video-mt-4 h3 {
+    .video-mt-4 h2, .video-mt-4 h3, .video-mt-4 .video-curtain {
         color: white;
     }
     .video-mt-5 {
         background-color: yellow;
     }
-    .video-mt-5 h2, .video-mt-5 h3 {
+    .video-mt-5 h2, .video-mt-5 h3, .video-mt-5 .video-curtain {
         color: black;
     }
     .video-mt-6 {
         background-color: green;
     }
-    .video-mt-6 h2, .video-mt-6 h3 {
+    .video-mt-6 h2, .video-mt-6 h3, .video-mt-6 .video-curtain {
         color: white;
     }
     .video-mt-7 {
         background-color: brown;
     }
-    .video-mt-7 h2, .video-mt-7 h3 {
+    .video-mt-7 h2, .video-mt-7 h3, .video-mt-7 .video-curtain {
         color: white;
     }
     .video-mt-8 {
         background-color: pink;
     }
-    .video-mt-8 h2, .video-mt-8 h3 {
+    .video-mt-8 h2, .video-mt-8 h3, .video-mt-8 .video-curtain {
         color: black;
     }
     .video-mt-9 {
         background-color: purple;
     }
-    .video-mt-9 h2, .video-mt-9 h3 {
+    .video-mt-9 h2, .video-mt-9 h3, .video-mt-9 .video-curtain {
         color: white;
     }
     .video-title {
@@ -114,36 +114,45 @@
     <main id="app">
     
         <div class="container config">
+	    <h3>Settings</h3>
             <h4>Color Theme</h4>
             <div class="row">
                 <label class="column" v-for="x in video_mt_class_list"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
             </div>
+	    <hr>
             <h4>Text</h4>
             <div class="row">
-                <h5 class="column column-10">Title</h5>
-                <input type="text" class="column column-40" v-model="video_title" placeholder="(title here)">
-		<h5 class="column column-10">Top Curtain Text</h5>
+		<label class="column column-10">Title</label>
+                <input type="text" class="column column-40" v-model="video_title" placeholder="(title)">
+		<label class="column column-10">Top Curtain Text</label>
                 <input type="text" class="column column-40" v-model="video_top_curtain_text" placeholder="(top curtain text)">
             </div>
             <div class="row">
-                <h5 class="column column-10">Bottom Curtain Text</h5>
+                <label class="column column-10">Bottom Curtain Text</label>
                 <input type="text" class="column column-40" v-model="video_bottom_curtain_text" placeholder="(bottom curtain text)">
-                <h5 class="column column-10">Subscript</h5>
-                <input type="text" class="column column-40" v-model="video_subcription" placeholder="(subscript below is here)">
+                <label class="column column-10">Footer</label>
+                <input type="text" class="column column-40" v-model="video_subcription" placeholder="(footer)">
             </div>
+	    <hr>
             <h4>Record</h4>
             <div class="row">
-                <label class="column" v-for="x in record_status_list"><input type="radio" name="record_status" v-model="record_started" v-bind:value="x.started">{{ x.name }}</label>
-		<label class="column">Header Curtain Height: </label><input type="number" min="0" max="100"v-model="video_curtain_top_height_percentage"><span class="column">%</span>
-		<label class="column">Footer Curtain Height: </label><input type="number" min="0" max="100" v-model="video_curtain_bottom_height_percentage"><span class="column">%</span>
+                <label class="column column-20" v-for="x in record_status_list"><input type="radio" name="record_status" v-model="record_started" v-bind:value="x.started">{{ x.name }}</label>
+            </div>
+            <div class="row">
+		<h5 class="column">Header Curtain</h5><label class="column">Top Position</label><input type="number" min="0" max="10" step="0.1" v-model="video_curtain_top_em"><span class="column">em</span>
+		<label class="column">Height</label><input type="number" min="0" max="100"v-model="video_curtain_top_height_percentage"><span class="column">%</span>
+	    </div>
+            <div class="row">
+		<h5 class="column">Footer Curtain</h5><label class="column">Bottom Position</label><input type="number" min="0" max="10" step="0.1" v-model="video_curtain_bottom_em"><span class="column">em</span>
+		<label class="column">Height</label><input type="number" min="0" max="100" v-model="video_curtain_bottom_height_percentage"><span class="column">%</span>
             </div>
         </div>
         <hr>
         <div class="container video-mt" :class="getVideoClassName(video_mt_class)">
             <h2 class="video-title">{{ video_title }}</h2>
 	    <iframe src="https://appear.in/" frameborder="0"></iframe>
-	    <div class="video-curtain video-curtain-top" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(record_started, video_curtain_top_height_percentage)"><span>{{ video_top_curtain_text }}</span></div>
-	    <div class="video-curtain video-curtain-bottom" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(record_started, video_curtain_bottom_height_percentage)">{{ video_bottom_curtain_text }}</div>
+	    <div class="video-curtain video-curtain-top" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(record_started, video_curtain_top_height_percentage, video_curtain_top_em, true)"><span>{{ video_top_curtain_text }}</span></div>
+	    <div class="video-curtain video-curtain-bottom" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(record_started, video_curtain_bottom_height_percentage, video_curtain_bottom_em, false)">{{ video_bottom_curtain_text }}</div>
             <h3 class="video-subcaption">{{ video_subcription }}</h3>
         </div>
     </main>
@@ -153,11 +162,13 @@
     function getVideoClassName(video_mt_class) {
         return "video-mt-" + video_mt_class;
     }
-    function getCurtainStyle(video_started, video_height_percentage) {
+    function getCurtainStyle(video_started, video_height_percentage, position_em, is_top) {
 	if (!video_started) {
 	    return "display: none;";
 	}
-	return "height: " + video_height_percentage + "%; "
+	return (is_top ? "top: " : "bottom: ")
+	       + position_em + "em; "
+	       + "height: " + video_height_percentage + "%; "
 	       + "line-height: " + video_height_percentage + "%;";
     }
     var app = new Vue({
@@ -175,8 +186,8 @@
                 {number: 9, name: "Purple"},
             ],
             record_status_list: [
-                {started: false, name: "Not Ready"},
                 {started: true, name: "Ready"},
+                {started: false, name: "Not Ready"},
             ],
             video_mt_class: 1,
             record_started: false,
@@ -184,7 +195,9 @@
             video_top_curtain_text: "www.",
             video_bottom_curtain_text: "...",
             video_subcription: "Have a good time with us.",
+            video_curtain_top_em: 5.7,
             video_curtain_top_height_percentage: 17,
+            video_curtain_bottom_em: 5.1,
             video_curtain_bottom_height_percentage: 9,
         },
     })
