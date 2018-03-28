@@ -18,11 +18,14 @@
         background: silver;
         color: black;
         padding: 1.5rem 3.0rem;
+        margin: 0 auto;
     }
     .color-sample {
         font-family: 'Fredericka the Great', cursive;
 	text-align: center;
-	height: 1.6em;
+	height: 2.3em;
+	width: 94%;
+	margin-left: 3%;
     }
     .video-mt {
         font-family: 'Fredericka the Great', cursive;
@@ -148,8 +151,8 @@
                 <div class="row">
                     <label class="column" v-for="x in video_mt_class_list"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
                 </div>
-		<div class="row color-sample" :class="getVideoClassName(video_mt_class)">
-	            <div class="video-curtain">Like this.</span>
+		<div class="color-sample" :class="getVideoClassName(video_mt_class)">
+	            <h3>Your text looks like this in video frame.</h3>
 	        </div>
             </div>
 	    <hr>
@@ -183,22 +186,22 @@
 	    <div data-intro="Curtain is to hide obstacle in video frame.">
                 <h4>Video Frame Curtain</h4>
                 <div class="row">
-    		<h5 class="column">Header</h5>
-    		<label class="column">Top Position</label>
-    		<input type="number" min="0" max="10" step="0.1" v-model="video_curtain_top_em">
-    		<span class="column">em [unit]</span>
-    		<label class="column">Height</label>
-    		<input type="number" min="0" max="100"v-model="video_curtain_top_height_percentage">
-    		<span class="column">%</span>
+                    <h5 class="column">Header</h5>
+    	            <label class="column">Top Position</label>
+    	            <input type="number" min="0" max="10" step="0.1" v-model="video_curtain_top_em" data-intro="Upper Curtain goes down when you increase top position.">
+    	            <span class="column">em [unit]</span>
+    	            <label class="column">Height</label>
+    	            <input type="number" min="0" max="100"v-model="video_curtain_top_height_percentage">
+    		    <span class="column">%</span>
                 </div>
                 <div class="row">
-    		<h5 class="column">Footer</h5>
-    		<label class="column">Bottom Position</label>
-    		<input type="number" min="0" max="10" step="0.1" v-model="video_curtain_bottom_em">
-    		<span class="column">em [unit]</span>
-    		<label class="column">Height</label>
-    		<input type="number" min="0" max="100" v-model="video_curtain_bottom_height_percentage">
-    		<span class="column">%</span>
+    		    <h5 class="column">Footer</h5>
+    		    <label class="column">Bottom Position</label>
+    		    <input type="number" min="0" max="10" step="0.1" v-model="video_curtain_bottom_em" data-intro="Lower Curtain goes up when you increase bottom position.">
+    		    <span class="column">em [unit]</span>
+    		    <label class="column">Height</label>
+                    <input type="number" min="0" max="100" v-model="video_curtain_bottom_height_percentage">
+    		    <span class="column">%</span>
                 </div>
 	    </div>
         </div>
