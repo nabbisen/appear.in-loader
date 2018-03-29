@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Appear.in Loader</title>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADv6eMCwpqI/76ciP/Bm4r/xpSF/6hmUvIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADGsanwyKeY/86rnf/TsqP/0rCi/9Osmf/NpI7/v3tP/6NUKf4AAAAAAAAAAOXZuQIAAAAAAAAAAAAAAADFpJX+zq2e/9Sxo//jwLL/48O4/967sf/evK3/3Lip/9uxmP/hom//uXA4/9O6ozEAAAAAAAAAAAAAAADr4N6X2bOl/8qpmv9yXW7/kXlx/55/cP/gva//6MzB/+rNwv/nzL3/yYpI/9GNRP/KhT7/AAAAAAAAAAAAAAAA4aiW/9+8r//gvKz/7c7D/+3Uxf/r0cH/79PE//vu4P/77uL/8dzL/+rPpv/enB//u3Ir/8SKRP/58OgCAAAAAPz49yHewK7/y5uN/964r//s29P/+enZ//nq2P/78OH/+vDl//Xl1P/38Oz/77dT/+GaBP/PlzX/t29L/+Oldv8AAAAA5c++/xQKAf/45tT/+e/k//799f8UCgH//PPv//rx5P/67Nr/+OnC/+/Gh//opgH/4KAC/8iDQv/BViQCAAAAAOW6iP/u5eD/6ce1//bn1f/r39r//v/8/8jAu//88Ob//PDg/+u6bv/sxZz/56MB/+ejAf/PiTP/AAAAAAAAAADllwL93MGz/9++rf/x2Mj/9eXU//Lgz//36df/+/Hn//js4//rsFv/3qg3/+elA//nowH/2Zgq/gAAAAAAAAAAzIoC//O/kP/y1ML/79bG//HXyP/x2cn/8M+///vy5P/kuGn/7qUv/+69ev/prkb/4ZwB/9uhOP8AAAAAAAAAALpwNv/srlD/5sq5/+3Uwf/t1MH/79XE/+/Wxv/huX3/+MuF//G1bv/rtWD/7rFZ/8+MOv/JiFn/0Y9f/QAAAADu38pJxn8S//HEjf/wxIX/68aJ//G8e//epgb/wHgp//CzTv/stWD/6rVe/+amGP/TkVD/uHJU//z6+QMAAAAAAAAAALJzR//24Mr/9MWH/+vAeP/ZmkT/sGxI/757T/+8dDr/7K5H/+eqMv/dnxv/05FQ/wAAAAAAAAAAAAAAAAAAAADdy82d2qBn/+2nM//mpAD/vn1L/61lSv+pYEr/plw6//KsJ//qrkH/05FQ/9ORUP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdy82d2qBn/9ORUP++fUv/vn1L/6ZcOv8AAAAA7t/KSd3LzZ3TkVD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdy82d2qBn/9ORUP++fUv/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8H8AAMAfAACADwAAAAcAAAADAACAAAAAgAEAAIABAACAAQAAgAEAAIAAAADAAQAAwAMAAMADAADwMwAA/D8AAA==" rel="icon" type="image/x-icon" />
+
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" integrity="sha256-Ro/wP8uUi8LR71kwIdilf78atpu8bTEwrK5ZotZo+Zc=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.min.css" integrity="sha256-5MHyBv4NJJFwl9GHA4Uijpqu6iTIcR8q0m3F11kDRS8=" crossorigin="anonymous" />
 
     <style>
+    .header {
+        text-align: center;
+    }
     main {
         width: 98vw;
         height: 98vh;
@@ -19,6 +24,9 @@
         color: black;
         padding: 1.5rem 3.0rem;
         margin: 0 auto;
+    }
+    .config {
+        margin: 1.5em auto;
     }
     .color-sample {
         font-family: 'Fredericka the Great', cursive;
@@ -135,59 +143,85 @@
         align-items: center;
 	justify-content: center;
     }
+    .footer {
+        bottom: 1.0em;
+        text-align: center;
+    }
     </style>
 </head>
 <body>
-	<main id="app" data-intro="Quicktime Player is available to record screen capture with sound.<br><br><ol><li>Run Quicktime Player.</li><li>Choose on menu: File > New Movie Recording</li><li>Click arrow to change record settings.</li><li>Click red circle button and then draw rectangle where you want to get capture with mouse cursor. Recording will start.</li></ol>See: https://support.apple.com/en-us/HT201066">
+    <main id="app">
+        <header class="header">
+            <h2>Video Capturer</h3>
+        </header>
     
         <div class="config">
-	    <div class="row">
-	        <h3 class="column column-75">Settings</h3>
-	        <button class="button column" onclick="introJs('html body').start();">Show me how to use</button>
-	    </div>
-	    <br>
-            <div data-intro="Select color theme.">
-                <h4>Color Theme</h4>
+            <div data-step="99" data-intro="After completing settings, you can start recording.<br>Quicktime Player is available to record screen capture with sound.<br><br><ol><li>Run Quicktime Player.</li><li>Choose on menu: File > New Movie Recording</li><li>Click arrow to change record settings.</li><li>Click red circle button and then draw rectangle where you want to get capture with mouse cursor. Recording will start.</li></ol>See: https://support.apple.com/en-us/HT201066">
                 <div class="row">
-                    <label class="column" v-for="x in video_mt_class_list_1"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
+                    <h3 class="column column-75">Settings</h3>
+                    <button class="button column" onclick="introJs('.config:first-child').start();">Show me how to use</button>
                 </div>
-                <div class="row">
-                    <label class="column" v-for="x in video_mt_class_list_2"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
+                <br>
+                <div data-intro="Select color theme.">
+                    <h4>Color Theme</h4>
+                    <div class="row">
+                        <label class="column" v-for="x in video_mt_class_list_1"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
+                    </div>
+                    <div class="row">
+                        <label class="column" v-for="x in video_mt_class_list_2"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
+                    </div>
+                    <div class="color-sample" :class="getVideoClassName(video_mt_class)">
+                        <h3>Your text looks like this in video frame.</h3>
+                    </div>
                 </div>
-		<div class="color-sample" :class="getVideoClassName(video_mt_class)">
-	            <h3>Your text looks like this in video frame.</h3>
-	        </div>
+                <hr>
+                <div data-intro="Input text around video frame.">
+                    <h4>Text In Video Frame</h4>
+                    <div class="row">
+                        <label class="column column-25">Title</label>
+                        <input type="text" class="column column-60" v-model="video_title" placeholder="(title)">
+                    </div>
+                    <div class="row">
+                        <label class="column column-25">Top Curtain Text</label>
+                        <input type="text" class="column column-60" v-model="video_top_curtain_text" placeholder="(top curtain text)">
+                    </div>
+                    <div class="row">
+                        <label class="column column-25">Bottom Curtain Text</label>
+                        <input type="text" class="column column-60" v-model="video_bottom_curtain_text" placeholder="(bottom curtain text)">
+                    </div>
+                    <div class="row">
+                        <label class="column column-25">Footer</label>
+                        <input type="text" class="column column-60" v-model="video_footer" placeholder="(footer)">
+                    </div>
+                </div>
+                <hr>
+                <div data-intro="When you get ready, set video frame curtain and start to record it!">
+                    <h4>Are You Ready?</h4>
+                    <div class="row">
+                        <label class="column column-20" v-for="x in preparation_status_list"><input type="radio" name="preparation_status" v-model="is_ready" v-bind:value="x.is_ready">{{ x.name }}</label>
+                    </div>
+                </div>
             </div>
-	    <hr>
-	    <div data-intro="Input text around video frame.">
-                <h4>Text</h4>
-                <div class="row">
-    		    <label class="column column-25">Title</label>
-                    <input type="text" class="column column-60" v-model="video_title" placeholder="(title)">
-                </div>
-                <div class="row">
-    		    <label class="column column-25">Top Curtain Text</label>
-                    <input type="text" class="column column-60" v-model="video_top_curtain_text" placeholder="(top curtain text)">
-                </div>
-                <div class="row">
-                    <label class="column column-25">Bottom Curtain Text</label>
-                    <input type="text" class="column column-60" v-model="video_bottom_curtain_text" placeholder="(bottom curtain text)">
-                </div>
-                <div class="row">
-                    <label class="column column-25">Footer</label>
-                    <input type="text" class="column column-60" v-model="video_footer" placeholder="(footer)">
-                </div>
-	    </div>
-	    <hr>
-	    <div data-intro="When you get ready, set video frame curtain and start to record it!">
-                <h4>Are You Ready?</h4>
-                <div class="row">
-                    <label class="column column-20" v-for="x in preparation_status_list"><input type="radio" name="preparation_status" v-model="is_ready" v-bind:value="x.is_ready">{{ x.name }}</label>
-                </div>
-	    </div>
-            <br>
+        </div>
+	<hr>
+        <div class="video-mt" :style="getVideoFrameStyle(!is_ready)">
+	    Video frame comes here.
+	</div>
+        <div class="container video-mt" :class="getVideoClassName(video_mt_class)" :style="getVideoFrameStyle(is_ready)">
+            <h2 class="video-title">{{ video_title }}</h2>
+	    <iframe src="https://appear.in/" frameborder="0"></iframe>
+	    <div class="video-curtain video-curtain-top" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(is_ready, video_curtain_top_height_percentage, video_curtain_top_em, true)"><span>{{ video_top_curtain_text }}</span></div>
+	    <div class="video-curtain video-curtain-bottom" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(is_ready, video_curtain_bottom_height_percentage, video_curtain_bottom_em, false)">{{ video_bottom_curtain_text }}</div>
+            <h3 class="video-footer">{{ video_footer }}</h3>
+        </div>
+	<br>
+        <div class="config config-curtain" :style="getVideoFrameStyle(is_ready)">
 	    <div data-intro="Curtain is to hide obstacle in video frame.">
-                <h4>Video Frame Curtain</h4>
+		<div class="row">
+                    <h4 class="column column-75">Video Frame Curtain</h4>
+	            <button class="button column" onclick="introJs('.config-curtain').start();">Show me how to use</button>
+		</div>
+		<br>
                 <div class="row">
                     <h5 class="column">Header</h5>
     	            <label class="column">Top Position</label>
@@ -209,18 +243,11 @@
 	    </div>
         </div>
 	<hr>
-        <div class="video-mt" :style="getVideoFrameStyle(!is_ready)">
-	    Video frame comes here.
-	</div>
-        <div class="container video-mt" :class="getVideoClassName(video_mt_class)" :style="getVideoFrameStyle(is_ready)">
-            <h2 class="video-title">{{ video_title }}</h2>
-	    <iframe src="https://appear.in/" frameborder="0"></iframe>
-	    <div class="video-curtain video-curtain-top" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(is_ready, video_curtain_top_height_percentage, video_curtain_top_em, true)"><span>{{ video_top_curtain_text }}</span></div>
-	    <div class="video-curtain video-curtain-bottom" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(is_ready, video_curtain_bottom_height_percentage, video_curtain_bottom_em, false)">{{ video_bottom_curtain_text }}</div>
-            <h3 class="video-footer">{{ video_footer }}</h3>
-        </div>
+        <footer class="footer">
+            <h5>- 2018 -</h5>
+        </footer>
     </main>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js" integrity="sha256-TaLceMwjWRqe4yhbqPOJH6V7UGt5AvvdNfpaIXJWbFU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/intro.min.js" integrity="sha256-hfmVcDB4v86G5tVgzUJ60031uvFWF+38pqVjkCxTkNs=" crossorigin="anonymous"></script>
     <script>
@@ -270,7 +297,7 @@
             video_footer: "Have a good time with us.",
             video_curtain_top_em: 5.7,
             video_curtain_top_height_percentage: 17,
-            video_curtain_bottom_em: 5.1,
+            video_curtain_bottom_em: 3.7,
             video_curtain_bottom_height_percentage: 9,
         },
     });
