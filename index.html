@@ -209,7 +209,7 @@
 	</div>
         <div class="container video-mt" :class="getVideoClassName(video_mt_class)" :style="getVideoFrameStyle(is_ready)">
             <h2 class="video-title">{{ video_title }}</h2>
-	    <iframe src="https://appear.in/" frameborder="0"></iframe>
+	    <iframe src="https://appear.in/" frameborder="0" allow="microphone camera"></iframe>
 	    <div class="video-curtain video-curtain-top" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(is_ready, video_curtain_top_height_percentage, video_curtain_top_em, true)"><span>{{ video_top_curtain_text }}</span></div>
 	    <div class="video-curtain video-curtain-bottom" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(is_ready, video_curtain_bottom_height_percentage, video_curtain_bottom_em, false)">{{ video_bottom_curtain_text }}</div>
             <h3 class="video-footer">{{ video_footer }}</h3>
