@@ -149,7 +149,10 @@
             <div data-intro="Select color theme.">
                 <h4>Color Theme</h4>
                 <div class="row">
-                    <label class="column" v-for="x in video_mt_class_list"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
+                    <label class="column" v-for="x in video_mt_class_list_1"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
+                </div>
+                <div class="row">
+                    <label class="column" v-for="x in video_mt_class_list_2"><input type="radio" name="video_class_name" v-model="video_mt_class" v-bind:value="x.number">{{ x.name }}</label>
                 </div>
 		<div class="color-sample" :class="getVideoClassName(video_mt_class)">
 	            <h3>Your text looks like this in video frame.</h3>
@@ -239,13 +242,15 @@
     var app = new Vue({
         el: "#app",
         data: {
-            video_mt_class_list: [
+            video_mt_class_list_1: [
                 {number: 1, name: "White"},
                 {number: 2, name: "Black"},
                 {number: 3, name: "Gray"},
                 {number: 4, name: "Blue"},
                 {number: 5, name: "Yellow"},
                 {number: 6, name: "Green"},
+            ],
+            video_mt_class_list_2: [
                 {number: 7, name: "Brown"},
                 {number: 8, name: "Pink"},
                 {number: 9, name: "Purple"},
@@ -260,8 +265,8 @@
             video_mt_class: 1,
             is_ready: false,
             video_title: "XXX Channel",
-            video_top_curtain_text: "www.youtube/xxx",
-            video_bottom_curtain_text: "https://xxx",
+            video_top_curtain_text: "www.youtube/xxxjp",
+            video_bottom_curtain_text: "https://xxx.jp",
             video_footer: "Have a good time with us.",
             video_curtain_top_em: 5.7,
             video_curtain_top_height_percentage: 17,
