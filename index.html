@@ -130,9 +130,6 @@
 	width: 100%;
 	z-index: 9999;
     }
-    .video-footer {
-	margin-bottom: 0;
-    }
     .video-curtain {
 	position: absolute;
         width: 100%;
@@ -150,10 +147,6 @@
 	display: flex;
         align-items: center;
 	justify-content: center;
-    }
-    .footer {
-        bottom: 1.0em;
-        text-align: center;
     }
     </style>
 </head>
@@ -197,10 +190,6 @@
                         <label class="column column-25">Bottom Curtain Text</label>
                         <input type="text" class="column column-60" v-model="video_bottom_curtain_text" placeholder="(bottom curtain text)">
                     </div>
-                    <div class="row">
-                        <label class="column column-25">Footer</label>
-                        <input type="text" class="column column-60" v-model="video_footer" placeholder="(footer)">
-                    </div>
                 </div>
                 <hr>
                 <div data-intro="When you get ready, set video frame curtain and start to record it!">
@@ -220,7 +209,6 @@
 	    <iframe src="https://appear.in/" frameborder="0" allow="microphone camera"></iframe>
 	    <div class="video-curtain video-curtain-top" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(is_ready, video_curtain_top_height_percentage, video_curtain_top_em, true)"><span>{{ video_top_curtain_text }}</span></div>
 	    <div class="video-curtain video-curtain-bottom" :class="getVideoClassName(video_mt_class)" :style="getCurtainStyle(is_ready, video_curtain_bottom_height_percentage, video_curtain_bottom_em, false)">{{ video_bottom_curtain_text }}</div>
-            <h3 class="video-footer">{{ video_footer }}</h3>
         </div>
 	<br>
         <div class="config config-curtain" :style="getVideoFrameStyle(is_ready)">
@@ -302,7 +290,6 @@
             video_title: "XXX Channel",
             video_top_curtain_text: "www.youtube/xxxjp",
             video_bottom_curtain_text: "https://xxx.jp",
-            video_footer: "Have a good time with us.",
             video_curtain_top_em: 4.7,
             video_curtain_top_height_percentage: 18,
             video_curtain_bottom_em: 1.6,
